@@ -1,0 +1,20 @@
+<mvc:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" controllerName="sidhant.myapp.controller.Main" xmlns="sap.m"
+	xmlns:semantic="sap.m.semantic" xmlns:ui="sap.ca.ui" displayBlock="true" xmlns:l="sap.ui.layout">
+	<semantic:FullscreenPage title="{i18n>appTitle}" showNavButton="false" navButtonPress="onNavButtonPress">
+		<l:VerticalLayout class="sapUiContentPadding" width="50%">
+			<Label text="{i18n>EmpId}" labelFor="employeeId"/>
+			<Input id="employeeId" class="sapUiSmallMarginBottom" placeholder="{i18n>EmpPlHolder}" required="true"
+				valueStateText="{i18n>MainValueState}" change="onNameChange" />
+			<Button text="{i18n>Scan}" press="onScanForValue"/>
+		</l:VerticalLayout>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"/>
+		</semantic:cancelAction>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+	</semantic:FullscreenPage>
+</mvc:View>

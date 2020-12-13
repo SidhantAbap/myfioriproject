@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="openDialog" noDataText="No Asset Found" title="Asset Detail" search="handleSearch" confirm="handleClose"
+		close="handleClose" items="{ path : 'EmpToItemNav' }">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier title="{AstDescr}" text="{AstId}"/>
+				<Text text="{EmpId}"/>
+				<Text text="{ValidFrom}"/>
+				<Text text="{ValidTo}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="Asset ID"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Phone" demandPopin="true">
+				<header>
+					<Text text="Employee ID"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Phone" demandPopin="true" hAlign="Right">
+				<header>
+					<Text text="Valid From"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Phone" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="Valid To"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

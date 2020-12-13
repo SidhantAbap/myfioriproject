@@ -1,0 +1,13 @@
+{
+  "deploy": {
+    "destination": "S4D",
+    "name": "ZSID_TEST_APP"
+  },
+  "generation": [
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Sat, 28 Nov 2020 03:53:13 GMT"
+    }
+  ]
+}

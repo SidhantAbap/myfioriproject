@@ -1,0 +1,41 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="sidhant.myapp.controller.Detail" xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:l="sap.ui.layout">
+	<Page id="smartFormPage" title="{i18n>pageTitle}" enableScrolling="ture" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<smartForm:SmartForm id="smartForm" editTogglable="true" title="{EmpFname} {EmpLname}" flexEnabled="false" expandable="true" expanded="true"
+				checkButton="true">
+				<smartForm:Group id="EmpDetail" label="{i18n>pageTitle}" expandable="true">
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{EmpId}"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{EmpFname}"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{EmpLname}"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{EmpPhno}"/>
+					</smartForm:GroupElement>
+					<smartForm:GroupElement>
+						<smartField:SmartField value="{EmpDept}"/>
+					</smartForm:GroupElement>
+				</smartForm:Group>
+			</smartForm:SmartForm>
+			<l:VerticalLayout class="sapUiContentPadding" width="50%">
+				<Label text="{i18n>AssetNumber}" labelFor="assetId"/>
+				<Input id="assetId" class="sapUiSmallMarginBottom" placeholder="{i18n>AssetPlHolder}" required="true" valueStateText="{i18n>ValueState}"
+					change="onNameChange"/>
+				<Button text="{i18n>Scan}" press="onScanForValue"/>
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="Save" press="onPressOnSave" type="Reject"/>
+					<Button text="Detail" press="onPressOnDetail" type="Accept"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

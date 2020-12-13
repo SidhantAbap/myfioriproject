@@ -1,0 +1,56 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZTEST_SID_EMP_DEMO_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="Employee" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmpId"/>
+                </Key>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpFname" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee First Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpLname" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Last Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpPhno" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Employee Phone Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpDept" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Employee Department" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="EmpToItemNav" Relationship="ZTEST_SID_EMP_DEMO_SRV.EmpToItemAss" FromRole="FromRole_EmpToItemAss" ToRole="ToRole_EmpToItemAss"/>
+            </EntityType>
+            <EntityType Name="EmployeeAsset" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AstId"/>
+                    <PropertyRef Name="EmpId"/>
+                </Key>
+                <Property Name="AstId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Asset ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AstDescr" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Asset Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Valid From Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Valid To Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="EmpToItemAss" sap:content-version="1">
+                <End Type="ZTEST_SID_EMP_DEMO_SRV.Employee" Multiplicity="1" Role="FromRole_EmpToItemAss"/>
+                <End Type="ZTEST_SID_EMP_DEMO_SRV.EmployeeAsset" Multiplicity="*" Role="ToRole_EmpToItemAss"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EmpToItemAss">
+                        <PropertyRef Name="EmpId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EmpToItemAss">
+                        <PropertyRef Name="EmpId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZTEST_SID_EMP_DEMO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EmployeeSet" EntityType="ZTEST_SID_EMP_DEMO_SRV.Employee" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeeAssetSet" EntityType="ZTEST_SID_EMP_DEMO_SRV.EmployeeAsset" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="EmpToItemAssSet" Association="ZTEST_SID_EMP_DEMO_SRV.EmpToItemAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmployeeSet" Role="FromRole_EmpToItemAss"/>
+                    <End EntitySet="EmployeeAssetSet" Role="ToRole_EmpToItemAss"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZTEST_SID_EMP_DEMO_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZTEST_SID_EMP_DEMO_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
