@@ -5,8 +5,9 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"sap/m/MessageBox",
 	"sap/ui/core/Fragment",
-	"sap/m/MessageToast"
-], function(BaseController, History, MessageBox, Fragment, MessageToast) {
+	"sap/m/MessageToast",
+	"sap/m/BusyIndicator"
+], function(BaseController, History, MessageBox, Fragment, MessageToast,BusyIndicator) {
 	"use strict";
 	return BaseController.extend("sidhant.myapp.Component.controller.Detail", {
 		/* =========================================================== */
